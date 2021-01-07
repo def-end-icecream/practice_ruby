@@ -18,13 +18,14 @@
 class Employee
   # attr_reader :first_name, :last_name, :salary, :active 
   # attr_writer :active 
-  attr_accessor :first_name, :last_name, :salary, :active
+  attr_accessor :first_name, :last_name, :salary, :active, :email
 
   def initialize(input_options)
     @first_name = input_options[:first_name]
     @last_name = input_options[:last_name]
     @salary = input_options[:salary]
     @active = input_options[:active]
+    @email = input_options[:email] || "#{@first_name}#{@last_name}@gmail.com"
   end
   
   def print_info
@@ -36,7 +37,7 @@ class Employee
   end
 end
 
-employee1 = Employee.new({first_name: "Peter", last_name: "Jang", salary: 800000, active: true})
+employee1 = Employee.new({first_name: "Peter", last_name: "Jang", salary: 800000, active: true, email: "peter@actualize.co"})
 employee2 = Employee.new(first_name: "Jay", last_name: "Wengrow", salary: 100000, active: true)
 employee1.print_info
 employee2.print_info
@@ -46,3 +47,5 @@ employee2.print_info
 puts employee2.active
 employee2.active = false
 puts employee2.active
+puts employee1.email
+puts employee2.email
