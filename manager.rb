@@ -18,13 +18,11 @@ class Employee
 end
 
 class Manager < Employee
+  attr_reader :employees 
+
   def initialize(input_options)
     super
     @employees = input_options[:employees]
-  end
-
-  def employees
-    @employees
   end
 
   def send_email_report
